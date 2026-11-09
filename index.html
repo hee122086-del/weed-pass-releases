@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>위드패스 설치</title>
+    <style>
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Malgun Gothic", sans-serif;
+      }
+      main {
+        max-width: 32rem;
+        margin: 4rem auto;
+        padding: 0 1.25rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      p {
+        line-height: 1.6;
+      }
+      a.btn {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        background: #111;
+        color: #fff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>위드패스 설치</h1>
+      <p id="ver">설치 파일을 확인하고 있습니다.</p>
+      <p><a class="btn" id="download" hidden>설치 파일 받기</a></p>
+      <p>
+        받은 파일을 실행하면 설치됩니다. Windows가 PC 보호 안내를 띄우면 추가 정보를 누른 뒤
+        실행을 선택하세요.
+      </p>
+    </main>
+    <script>
+      const fallback =
+        "https://github.com/hee122086-del/weed-pass-releases/releases/download/v3.0.2/weed-pass-setup-3.0.2.exe";
+      const link = document.getElementById("download");
+      const ver = document.getElementById("ver");
+      fetch("https://api.github.com/repos/hee122086-del/weed-pass-releases/releases/latest")
+        .then((response) => response.json())
+        .then((data) => {
+          const exe = (data.assets || []).find((asset) => asset.name.toLowerCase().endsWith(".exe"));
+          link.href = exe ? exe.browser_download_url : fallback;
+          link.hidden = false;
+          ver.textContent = data.tag_name
+            ? "버전 " + data.tag_name.replace(/^v/, "")
+            : "버전 3.0.2";
+        })
+        .catch(() => {
+          link.href = fallback;
+          link.hidden = false;
+          ver.textContent = "버전 3.0.2";
+        });
+    </script>
+  </body>
+</html>
