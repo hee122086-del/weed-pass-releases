@@ -191,6 +191,13 @@ a {
   margin-top: 56px;
 }
 
+.shot-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
 /* 앱 화면 그림 */
 .window {
   background: #fff;
