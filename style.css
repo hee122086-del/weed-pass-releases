@@ -1,0 +1,163 @@
+:root {
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --brand: #0f766e;
+  --brand-soft: #f0fdfa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', system-ui, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: var(--brand);
+}
+
+.hero {
+  background: linear-gradient(180deg, var(--brand-soft), #fff);
+  border-bottom: 1px solid var(--line);
+  padding: 72px 0 48px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--brand);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.25;
+}
+
+.hero h1 span {
+  display: inline-block;
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.lead {
+  margin: 16px 0 0;
+  font-size: 17px;
+  color: #374151;
+}
+
+.page-head {
+  border-bottom: 1px solid var(--line);
+  padding: 48px 0 24px;
+}
+
+.page-head h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.updated {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+main {
+  padding: 40px 20px 64px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 21px;
+}
+
+h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.cards li {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  background: #fff;
+}
+
+.cards p {
+  margin: 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.doc ul {
+  margin: 0 0 12px;
+  padding-left: 22px;
+}
+
+.doc li {
+  margin-bottom: 8px;
+}
+
+code {
+  background: #f3f4f6;
+  border-radius: 5px;
+  padding: 1px 6px;
+  font-size: 14px;
+}
+
+.contact a {
+  font-weight: 700;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+footer p {
+  margin: 0;
+}

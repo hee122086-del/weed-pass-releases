@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>사용 설명서 — 위드패스 (WeeD-Pass)</title>
+    <meta name="description" content="위드패스 설치, 처음 설정, 일정 등록, 회기 기록, 상담확인증, 집단상담, 상담 대장, 백업 방법을 안내합니다." />
+    <link rel="icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap">
+        <a class="logo" href="index.html"><img src="assets/icon.png" alt="" />위드패스 <small>WeeD-Pass</small></a>
+        <nav class="nav-links">
+          <a href="index.html#features">주요 기능</a>
+          <a href="index.html#start">시작하기</a>
+          <a href="guide.html">사용 설명서</a>
+          <a href="index.html#faq">자주 묻는 질문</a>
+        </nav>
+        <a class="btn btn-line btn-sm js-download" href="index.html#start">다운로드</a>
+      </div>
+    </header>
+
+    <header class="guide-head">
+      <div class="wrap">
+        <h1>사용 설명서</h1>
+        <p>설치부터 학기 말 서류까지, 처음 쓰는 선생님이 순서대로 따라 할 수 있게 정리했습니다.</p>
+      </div>
+    </header>
+
+    <div class="wrap guide">
+      <nav class="toc">
+        <b>목차</b>
+        <a href="#install">1. 설치하기</a>
+        <a href="#setup">2. 처음 설정</a>
+        <a href="#schedule">3. 일정 등록</a>
+        <a href="#record">4. 회기 기록</a>
+        <a href="#slip">5. 상담확인증</a>
+        <a href="#group">6. 집단상담</a>
+        <a href="#ledger">7. 상담 대장·나이스</a>
+        <a href="#google">8. 구글 캘린더</a>
+        <a href="#backup">9. 백업과 복원</a>
+        <a href="#update">10. 업데이트</a>
+        <a href="#trouble">11. 문제가 생기면</a>
+      </nav>
+
+      <main class="doc">
+        <section id="install">
+          <h2>1. 설치하기</h2>
+          <ol>
+            <li><a href="index.html#start">다운로드</a>에서 설치 파일(<code>weed-pass-setup-버전.exe</code>)을 받습니다.</li>
+            <li>다운로드 폴더에서 받은 파일을 두 번 누릅니다.</li>
+            <li>「Windows의 PC 보호」 창이 뜨면 <span class="ui">추가 정보</span>를 누르고 <span class="ui">실행</span>을 누릅니다.</li>
+            <li>설치 창에서 설치 위치를 확인하고 <span class="ui">설치</span>를 누릅니다. 위치는 그대로 두어도 됩니다.</li>
+            <li>설치가 끝나면 바탕 화면이나 시작 메뉴의 <b>위드패스</b> 아이콘으로 실행합니다.</li>
+          </ol>
+          <div class="tip">개인이 만든 프로그램이라 처음 설치할 때 Windows가 확인 창을 띄웁니다. 정상적인 안내이니 그대로 진행하시면 됩니다.</div>
+        </section>
+
+        <section id="setup">
+          <h2>2. 처음 설정</h2>
+          <h3>계정 만들기</h3>
+          <p>처음 실행하면 「처음 사용하시는군요! 계정을 만들어 주세요」 화면이 나옵니다. 이 컴퓨터에서 쓸 아이디와 비밀번호를 정합니다. 계정마다 명렬표·상담·메모가 따로 저장되므로, 순회 근무라면 학교별로 계정을 만들어도 됩니다.</p>
+          <div class="tip warn">비밀번호는 내 컴퓨터에 암호화되어 저장되며, 잊으면 찾을 방법이 없습니다. 안전한 곳에 적어 두세요.</div>
+          <h3>학교 환경</h3>
+          <p>왼쪽 아래 <span class="ui">설정</span> → <span class="ui">학교 환경</span>에서 아래를 넣습니다.</p>
+          <ul>
+            <li><b>학교 정보·시정표</b>: 학교명과 교시별 시작·끝 시각. 홈 화면의 「지금 교시」와 미기록 알림이 이 시각을 기준으로 움직입니다. 단축수업 기간과 시정표도 따로 넣을 수 있습니다.</li>
+            <li><b>학사일정</b>: 방학식·개학식과 재량휴업일. 공휴일과 선거일은 자동으로 불러옵니다.</li>
+            <li><b>컴시간 학교코드</b>: 컴시간 알리미 교사용 코드(나이스 학교코드와 다름). 일과계 선생님께 문의하세요.</li>
+          </ul>
+          <h3>학생 명렬표</h3>
+          <p><span class="ui">학생 명렬표</span>에서 학생 명단을 엑셀로 불러오면, 일정 등록과 검색에서 이름·학번으로 바로 고를 수 있습니다.</p>
+        </section>
+
+        <section id="schedule">
+          <h2>3. 일정 등록</h2>
+          <ol>
+            <li>왼쪽 아래 <span class="ui">새일정</span>을 누르거나, 캘린더의 빈 날짜를 누릅니다.</li>
+            <li><b>상담</b>(개인·집단·학부모·자문·교육) 또는 <b>상담 외</b>(출장·회의·기타일정)를 고릅니다.</li>
+            <li>개인상담은 내담자를 고르면 그 반의 컴시간 시간표가 옆에 나옵니다. 이미 일정이 있는 교시는 회색입니다.</li>
+            <li>매주 반복이면 반복 요일과 횟수(또는 종료일)를 넣고 저장합니다.</li>
+          </ol>
+          <div class="tip">겹치는 시간에 등록하면 기존 일정을 보여 주고 다시 확인합니다. 예약 없이 바로 기록하려면 <span class="ui">바로 기록</span>을 누르세요.</div>
+        </section>
+
+        <section id="record">
+          <h2>4. 회기 기록</h2>
+          <p>상담 시간이 지나면 일정이 「상담 완료」로 바뀌고 <span class="ui">미기록</span>에 건수가 붙습니다. 미기록이나 오늘 일정에서 <span class="ui">기록하기</span>를 누르면 회기 기록지가 열립니다.</p>
+          <ul>
+            <li><b>상담 내용</b>은 나이스 통계 항목에서 고릅니다. 나이스 업로드에 그대로 쓰입니다.</li>
+            <li>학생이 오지 않았다면 <span class="ui">당일취소</span>를 체크해 회기 없이 취소로 남깁니다.</li>
+            <li>내담자 카드에서는 개인·보호자·집단 회기와 다음 예약일을 한눈에 봅니다.</li>
+          </ul>
+        </section>
+
+        <section id="slip">
+          <h2>5. 상담확인증</h2>
+          <ol>
+            <li>처음 한 번 <span class="ui">설정</span> → <span class="ui">확인증</span>에서 제목·본문·서명란·도장·프린터를 정합니다.</li>
+            <li>왼쪽 아래 <span class="ui">확인증</span>을 누르고 일정을 고르면 날짜와 교시가 들어간 확인증이 나옵니다.</li>
+            <li>미리보기를 확인하고 출력합니다. 영수증 프린터 폭에도 맞춰 출력됩니다.</li>
+          </ol>
+        </section>
+
+        <section id="group">
+          <h2>6. 집단상담</h2>
+          <ul>
+            <li><span class="ui">집단상담</span>에서 집단을 만들고 참여 학생, 회기 날짜, 리더·장소를 넣습니다.</li>
+            <li>출석부 칸을 누르면 출석, 다시 누르거나 오른쪽 클릭하면 결석·지각·비대상을 고릅니다.</li>
+            <li>열린집단은 학생을 바꿀 때 몇 회기부터 적용할지 고르면 앞 회기 출석이 그대로 남습니다.</li>
+            <li>출석부와 운영보고서는 인쇄·엑셀·PDF로 받습니다.</li>
+          </ul>
+        </section>
+
+        <section id="ledger">
+          <h2>7. 상담 대장·나이스</h2>
+          <ul>
+            <li><span class="ui">상담 대장</span>에서 학기·월·기간을 고르고 엑셀이나 PDF로 받습니다. 기록완료된 회기만 들어갑니다.</li>
+            <li><span class="ui">나이스 업로드</span>에서 기간을 고르면 상담제목(사례번호)과 상담내용이 채워진 자료가 만들어집니다. 교원자문은 교원명 없이 올라갑니다.</li>
+            <li>운영결과보고는 기간을 확인한 뒤 내려받습니다.</li>
+          </ul>
+        </section>
+
+        <section id="google">
+          <h2>8. 구글 캘린더 (선택)</h2>
+          <p>휴대폰에서도 일정을 보고 싶을 때만 켜면 됩니다. <span class="ui">설정</span> → <span class="ui">Google 캘린더</span>에서 연결하면 내 구글 계정에 「위드패스」 전용 캘린더가 생기고 일정만 올라갑니다.</p>
+          <ul>
+            <li>이름은 김0희처럼 가운데를 가리고, 상담 기록과 메모는 보내지 않습니다.</li>
+            <li>로그인 중 「확인되지 않은 앱」 안내가 나오면 <span class="ui">고급</span>을 누르고 <span class="ui">이동</span>을 선택합니다.</li>
+            <li>일정이 어긋나 보이면 같은 화면의 <span class="ui">학년도 일정 다시 동기화</span>를 누릅니다.</li>
+          </ul>
+          <p>자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 참고하세요.</p>
+        </section>
+
+        <section id="backup">
+          <h2>9. 백업과 복원</h2>
+          <ol>
+            <li><span class="ui">설정</span> → <span class="ui">데이터 백업</span>에서 <span class="ui">백업 파일 저장</span>을 누릅니다.</li>
+            <li>이 백업 파일에만 쓸 암호를 정합니다. 복원할 때 같은 암호가 필요합니다.</li>
+            <li>새 컴퓨터에서는 위드패스를 설치하고 계정을 만든 뒤 <span class="ui">백업 파일로 복원</span>을 누릅니다.</li>
+          </ol>
+          <div class="tip warn">백업 파일은 USB나 개인 클라우드처럼 컴퓨터 밖에도 한 부 보관해 두세요. 학기 말에 한 번씩 받아 두면 안심입니다.</div>
+        </section>
+
+        <section id="update">
+          <h2>10. 업데이트</h2>
+          <p>위드패스를 켜면 새 버전을 확인해서 알려 줍니다. 안내에 따라 받고 다시 시작하면 기록은 그대로 두고 프로그램만 바뀝니다. 안내가 뜨지 않으면 이 페이지에서 최신 설치 파일을 받아 그대로 설치해도 됩니다.</p>
+        </section>
+
+        <section id="trouble">
+          <h2>11. 문제가 생기면</h2>
+          <h3>컴시간 시간표가 안 나와요</h3>
+          <p>학교 환경의 컴시간 학교코드를 확인하고, 최신 버전인지 확인해 주세요. 컴시간 알리미는 접속 방식을 자주 바꾸기 때문에, 조회가 안 되면 대개 새 버전에서 고쳐집니다. 시간표가 없어도 교시를 직접 골라 예약과 확인증 출력은 할 수 있습니다.</p>
+          <h3>구글 캘린더에 일정이 안 보여요</h3>
+          <p>설정 → Google 캘린더에서 연결 상태를 보고 <span class="ui">학년도 일정 다시 동기화</span>를 누릅니다. 휴대폰 캘린더 앱에서 「위드패스」 캘린더가 켜져 있는지도 확인하세요.</p>
+          <h3>그 밖의 문의</h3>
+          <p>어떤 화면에서 무엇을 눌렀는지와 나온 안내 문구를 적어 <a href="mailto:hee122086@gmail.com">hee122086@gmail.com</a>으로 보내 주세요. 화면 캡처가 있으면 더 빨리 확인할 수 있습니다. 학생 이름이 보이지 않게 가려서 보내 주세요.</p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div><b style="color: var(--ink)">위드패스 (WeeD-Pass)</b><br />학교 상담 선생님을 위한 상담 업무 도구</div>
+        <nav>
+          <a href="index.html">홈</a>
+          <a href="privacy.html">개인정보처리방침</a>
+          <a href="terms.html">서비스 약관</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="download.js"></script>
+  </body>
+</html>

@@ -3,66 +3,468 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>위드패스 설치</title>
-    <style>
-      body {
-        margin: 0;
-        color: #111;
-        background: #fff;
-        font-family: "Malgun Gothic", sans-serif;
-      }
-      main {
-        max-width: 32rem;
-        margin: 4rem auto;
-        padding: 0 1.25rem;
-      }
-      h1 {
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
-      p {
-        line-height: 1.6;
-      }
-      a.btn {
-        display: inline-block;
-        margin-top: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        background: #111;
-        color: #fff;
-        text-decoration: none;
-      }
-    </style>
+    <title>위드패스 (WeeD-Pass) — 학교 상담 일정과 기록을 한곳에서</title>
+    <meta
+      name="description"
+      content="위드패스는 학교 상담 담당 교사를 위한 무료 데스크톱 프로그램입니다. 상담 일정, 회기 기록, 상담확인증, 집단상담 출석부, 상담 대장과 나이스 자료까지 내 컴퓨터에서 관리합니다."
+    />
+    <meta property="og:title" content="위드패스 — 학교 상담 일정과 기록을 한곳에서" />
+    <meta
+      property="og:description"
+      content="상담 일정부터 회기 기록, 확인증, 상담 대장까지. 학교 상담 선생님을 위한 무료 프로그램"
+    />
+    <meta property="og:image" content="assets/icon.png" />
+    <link rel="icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="site.css" />
   </head>
   <body>
-    <main>
-      <h1>위드패스 설치</h1>
-      <p id="ver">설치 파일을 확인하고 있습니다.</p>
-      <p><a class="btn" id="download" hidden>설치 파일 받기</a></p>
-      <p>
-        받은 파일을 실행하면 설치됩니다. Windows가 PC 보호 안내를 띄우면 추가 정보를 누른 뒤
-        실행을 선택하세요.
-      </p>
-    </main>
-    <script>
-      const fallback =
-        "https://github.com/hee122086-del/weed-pass-releases/releases/download/v3.0.2/weed-pass-setup-3.0.2.exe";
-      const link = document.getElementById("download");
-      const ver = document.getElementById("ver");
-      fetch("https://api.github.com/repos/hee122086-del/weed-pass-releases/releases/latest")
-        .then((response) => response.json())
-        .then((data) => {
-          const exe = (data.assets || []).find((asset) => asset.name.toLowerCase().endsWith(".exe"));
-          link.href = exe ? exe.browser_download_url : fallback;
-          link.hidden = false;
-          ver.textContent = data.tag_name
-            ? "버전 " + data.tag_name.replace(/^v/, "")
-            : "버전 3.0.2";
-        })
-        .catch(() => {
-          link.href = fallback;
-          link.hidden = false;
-          ver.textContent = "버전 3.0.2";
-        });
-    </script>
+    <header class="nav">
+      <div class="wrap">
+        <a class="logo" href="#top"><img src="assets/icon.png" alt="" />위드패스 <small>WeeD-Pass</small></a>
+        <nav class="nav-links">
+          <a href="#features">주요 기능</a>
+          <a href="#start">시작하기</a>
+          <a href="guide.html">사용 설명서</a>
+          <a href="#faq">자주 묻는 질문</a>
+        </nav>
+        <a class="btn btn-line btn-sm" href="#start">다운로드</a>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">학교 상담 선생님을 위한 상담 업무 도구</p>
+            <h1>상담 일정부터 기록,<br />확인증과 대장까지 한곳에서</h1>
+          </div>
+          <div class="hero-side">
+            <p>
+              오늘 누구를 만나는지, 어떤 기록이 남아 있는지 한 화면에서 봅니다. 위드패스가 일정과
+              기록을 정리하고, 학기 말 대장과 나이스 자료까지 만들어 드립니다.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary js-download" href="#start">무료 다운로드</a>
+              <a class="btn btn-line" href="#features">주요 기능 보기</a>
+            </div>
+            <p class="hero-note"><span class="js-version">Windows 10·11</span> · 내 컴퓨터에 설치하는 무료 프로그램</p>
+          </div>
+        </div>
+
+        <div class="hero-shot">
+          <div class="window">
+            <div class="titlebar"><img src="assets/icon.png" alt="" />위드패스<span class="dots">– □ ×</span></div>
+            <div class="app">
+              <aside class="side">
+                <div class="brand"><img src="assets/icon.png" alt="" />위드패스</div>
+                <div class="item on">홈</div>
+                <div class="item">상담 캘린더</div>
+                <div class="item">개인상담</div>
+                <div class="item">집단상담</div>
+                <div class="item">자문·의뢰</div>
+                <div class="item">상담 대장</div>
+                <div class="item">나이스 업로드</div>
+                <div class="item">학생 명렬표</div>
+                <div class="sep"></div>
+                <div class="quick"><span>새일정</span><span>미기록 3</span><span>확인증</span><span>컴시간</span></div>
+              </aside>
+              <div class="main">
+                <div class="banner">
+                  <div>
+                    <b>오늘도, 마음을 잇는 시간</b>
+                    <div style="opacity: 0.85; font-size: 11px">2학기 수업일 42일 남음 · 겨울방학 D-52</div>
+                  </div>
+                  <div class="now">지금 <strong>3교시</strong>11:35 끝 · 18분 남음</div>
+                </div>
+                <div class="cols">
+                  <div class="card">
+                    <h4>11월 상담 캘린더 <small>오늘 · 바로이동</small></h4>
+                    <div class="chips">
+                      <span><i class="dot d-ind"></i>개인</span><span><i class="dot d-grp"></i>집단</span>
+                      <span><i class="dot d-par"></i>학부모</span><span><i class="dot d-con"></i>자문</span>
+                      <span><i class="dot d-etc"></i>출장·회의</span>
+                    </div>
+                    <div class="cal">
+                      <div class="head sun">일</div><div class="head">월</div><div class="head">화</div><div class="head">수</div><div class="head">목</div><div class="head">금</div><div class="head sat">토</div>
+                      <div class="sun">16</div>
+                      <div>17<span class="ev"><i class="dot d-ind"></i>이○준</span><span class="ev"><i class="dot d-grp"></i>또래상담</span></div>
+                      <div>18<span class="ev"><i class="dot d-par"></i>박○연 보호자</span></div>
+                      <div>19<span class="ev"><i class="dot d-ind"></i>최○민</span><span class="ev"><i class="dot d-etc"></i>교육청 출장</span></div>
+                      <div>20<span class="ev"><i class="dot d-con"></i>2-3 담임</span></div>
+                      <div>21<span class="ev"><i class="dot d-ind"></i>김○희</span></div>
+                      <div class="sat">22</div>
+                      <div class="sun">23</div>
+                      <div>24<span class="ev"><i class="dot d-grp"></i>또래상담</span><span class="ev"><i class="dot d-etc"></i>수퍼비전</span></div>
+                      <div>25<span class="ev"><i class="dot d-ind"></i>이○준</span></div>
+                      <div class="today">26<span class="ev"><i class="dot d-ind"></i>김○희</span><span class="ev"><i class="dot d-par"></i>정○우 보호자</span></div>
+                      <div>27<span class="ev"><i class="dot d-etc"></i>학년 협의회</span></div>
+                      <div>28<span class="ev"><i class="dot d-ind"></i>최○민</span></div>
+                      <div class="sat">29</div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <h4>오늘 일정 <small>11월 26일 (목)</small></h4>
+                    <ul class="list">
+                      <li><span class="time">1교시</span><i class="dot d-ind"></i>김○희 · 3회기<span class="tag done">기록완료</span></li>
+                      <li><span class="time">3교시</span><i class="dot d-par"></i>정○우 보호자<span class="tag todo">기록하기</span></li>
+                      <li><span class="time">점심</span><i class="dot d-grp"></i>또래상담 5회기<span class="tag plan">예약</span></li>
+                      <li><span class="time">6교시</span><i class="dot d-con"></i>1-4 담임 자문<span class="tag plan">예약</span></li>
+                    </ul>
+                    <h4 style="margin-top: 12px">할 일</h4>
+                    <ul class="list">
+                      <li>☑ 학업중단 숙려 서류 제출</li>
+                      <li>☐ 12월 집단 안내문 발송</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>상담실의 하루를<br />한 흐름으로 잇습니다</h2>
+          <p>흩어져 있던 일정표, 기록지, 출석부, 대장을 한곳에 모았습니다. 적어 두면 필요한 자료는 위드패스가 만들어 줍니다.</p>
+        </div>
+
+        <div class="feature">
+          <div>
+            <span class="kicker">상담 일정</span>
+            <h3>수업 시간표를 보면서<br />상담 시간을 잡습니다</h3>
+            <p>컴시간 알리미 학교코드를 넣으면 학생 반의 시간표가 일정 창에 함께 나옵니다. 이미 상담이나 출장이 잡힌 교시는 회색으로 표시돼 겹치지 않게 고를 수 있습니다.</p>
+            <ul class="checks">
+              <li>개인·집단·학부모·자문·교육·출장·회의를 색으로 구분</li>
+              <li>매주 같은 요일 반복 등록, 겹치는 시간은 먼저 알려 줌</li>
+              <li>공휴일·선거일은 자동, 학교 재량휴업일·방학만 넣으면 됨</li>
+            </ul>
+          </div>
+          <div class="window rounded">
+            <div class="titlebar"><img src="assets/icon.png" alt="" />새 일정 등록 · 개인상담</div>
+            <div class="main">
+              <div class="cols">
+                <div>
+                  <div class="field"><label>내담자</label><div>김○희 · 2학년 3반 · 2026-014</div></div>
+                  <div class="field"><label>상담일자</label><div>2026-11-27 (금)</div></div>
+                  <div class="field"><label>교시</label><div>4교시 ~ 4교시</div></div>
+                  <div class="field"><label>반복</label><div>매주 금요일 · 4회</div></div>
+                </div>
+                <div class="card">
+                  <h4>2학년 3반 시간표 <small>컴시간</small></h4>
+                  <div class="tt">
+                    <div class="h"></div><div class="h">월</div><div class="h">화</div><div class="h">수</div><div class="h">목</div><div class="h">금</div>
+                    <div class="h">1</div><div>국어</div><div>수학</div><div class="busy">상담</div><div>영어</div><div>과학</div>
+                    <div class="h">2</div><div>사회</div><div>체육</div><div>국어</div><div>수학</div><div>음악</div>
+                    <div class="h">3</div><div>영어</div><div class="busy">출장</div><div>과학</div><div>국어</div><div>수학</div>
+                    <div class="h">4</div><div>미술</div><div>국어</div><div>영어</div><div>사회</div><div class="pick">창체</div>
+                    <div class="h">5</div><div>수학</div><div>과학</div><div>체육</div><div>정보</div><div>국어</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature flip">
+          <div>
+            <span class="kicker">회기 기록</span>
+            <h3>지난 이야기를 이어서<br />기록합니다</h3>
+            <p>내담자 카드를 열면 개인·보호자·집단 회기가 시간 순서로 정리돼 있습니다. 상담이 끝나면 미기록 알림이 남아, 빠뜨린 기록을 바로 채울 수 있습니다.</p>
+            <ul class="checks">
+              <li>회기 기록 옆에 다음 예약일과 상담 횟수 표시</li>
+              <li>이름·학번·사례번호로 바로 찾기</li>
+              <li>다문화 학생은 한국어 이름을 함께 표시</li>
+            </ul>
+          </div>
+          <div class="window rounded">
+            <div class="titlebar"><img src="assets/icon.png" alt="" />내담자 정보 · 김○희</div>
+            <div class="main">
+              <div class="cols">
+                <div class="card">
+                  <h4>3회기 기록 <small>2026-11-26 · 1교시</small></h4>
+                  <div class="field"><label>상담 내용 (나이스 통계)</label><div>대인관계 · 또래관계</div></div>
+                  <div class="field"><label>회기 주제</label><div>친구와의 갈등 이후 마음 정리</div></div>
+                  <div class="field"><label>상담 기록</label><div class="tall">지난 회기에 이야기한 …</div></div>
+                </div>
+                <div class="card">
+                  <h4>회기 흐름 <small>개인 3 · 집단 2</small></h4>
+                  <div class="timeline">
+                    <div><b>11.26 개인 3회기</b><span>기록완료 · 다음 예약 12.03</span></div>
+                    <div><b>11.19 개인 2회기</b><span>기록완료</span></div>
+                    <div><b>11.17 또래상담 4회기</b><span>집단 · 출석</span></div>
+                    <div><b>11.12 개인 1회기</b><span>담임 의뢰</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <span class="kicker">상담확인증</span>
+            <h3>수업 빠짐 확인증을<br />바로 출력합니다</h3>
+            <p>예약한 교시가 자동으로 들어간 확인증을 영수증 프린터나 일반 프린터로 출력합니다. 제목·본문·서명란·도장은 학교에 맞게 한 번만 설정하면 됩니다.</p>
+            <ul class="checks">
+              <li>출력 전 미리보기로 용지에 맞게 확인</li>
+              <li>학급 시간표에서 해당 교시를 색으로 표시</li>
+              <li>교과교사·담임교사 확인란 포함</li>
+            </ul>
+          </div>
+          <div class="window rounded">
+            <div class="titlebar"><img src="assets/icon.png" alt="" />상담확인증 미리보기</div>
+            <div class="main" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start">
+              <div class="slip">
+                <h5>상담 확인증</h5>
+                <div class="box">2학년 3반 김○희 학생은<br /><b>11월 27일(금) 4교시</b><br />Wee클래스에서 상담을 받았습니다.</div>
+                <div class="sign"><span>교과교사 (인)</span><span>담임교사 (인)</span></div>
+                <p style="margin: 10px 0 0; text-align: center; color: #6b7280">○○중학교 Wee클래스</p>
+              </div>
+              <div class="card">
+                <h4>출력 설정</h4>
+                <div class="field"><label>프린터</label><div>영수증 프린터 (80mm)</div></div>
+                <div class="field"><label>서명란</label><div>교과교사 · 담임교사</div></div>
+                <div class="field"><label>도장</label><div>Wee클래스 직인 사용</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature flip">
+          <div>
+            <span class="kicker">집단상담</span>
+            <h3>출석부와 운영보고를<br />회기마다 정리합니다</h3>
+            <p>칸을 누르면 출석, 다시 누르면 결석·지각·비대상을 고릅니다. 열린집단은 몇 회기부터 참여했는지 남겨 두고, 출석부와 운영보고서를 인쇄·엑셀·PDF로 받습니다.</p>
+            <ul class="checks">
+              <li>12회기까지 한 화면에 들어오는 출석부</li>
+              <li>집단 상태는 날짜에 따라 예정·진행중·종결 자동 표시</li>
+              <li>집단 사례번호(2026_G01)와 참여 인원 집계</li>
+            </ul>
+          </div>
+          <div class="window rounded">
+            <div class="titlebar"><img src="assets/icon.png" alt="" />또래상담 · 출석부</div>
+            <div class="main">
+              <div class="att">
+                <div class="n hd">이름</div><div class="hd">1회</div><div class="hd">2회</div><div class="hd">3회</div><div class="hd">4회</div><div class="hd">5회</div><div class="hd">6회</div>
+                <div class="n">김○희</div><div class="o">출</div><div class="o">출</div><div class="o">출</div><div class="o">출</div><div class="e">-</div><div class="e">-</div>
+                <div class="n">이○준</div><div class="o">출</div><div class="l">지</div><div class="o">출</div><div class="o">출</div><div class="e">-</div><div class="e">-</div>
+                <div class="n">박○연</div><div class="o">출</div><div class="o">출</div><div class="x">결</div><div class="o">출</div><div class="e">-</div><div class="e">-</div>
+                <div class="n">최○민</div><div class="e">-</div><div class="e">-</div><div class="o">출</div><div class="o">출</div><div class="e">-</div><div class="e">-</div>
+                <div class="n">정○우</div><div class="o">출</div><div class="o">출</div><div class="o">출</div><div class="l">지</div><div class="e">-</div><div class="e">-</div>
+              </div>
+              <p style="margin: 10px 0 0; color: #6b7280; font-size: 11px">최○민 (3회기부터 참여) · 출석 4/5 · 다음 회기 오늘 점심</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <span class="kicker">상담 대장 · 나이스</span>
+            <h3>학기 말 서류를<br />버튼 한 번으로</h3>
+            <p>기록완료된 회기만 모아 상담 대장을 만들고, 나이스 업로드용 자료와 운영결과보고까지 정리합니다. 월이나 기간을 고르면 그 기간 자료만 받습니다.</p>
+            <ul class="checks">
+              <li>상담 대장 엑셀·PDF 다운로드</li>
+              <li>나이스 상담제목·내용 자동 채움, 교원자문은 이름 없이</li>
+              <li>운영결과보고 통계 자동 집계</li>
+            </ul>
+          </div>
+          <div class="window rounded">
+            <div class="titlebar"><img src="assets/icon.png" alt="" />상담 대장 · 2026학년도 2학기</div>
+            <div class="main">
+              <div class="chips"><span>전체 128</span><span><i class="dot d-ind"></i>개인 74</span><span><i class="dot d-grp"></i>집단 31</span><span><i class="dot d-par"></i>학부모 12</span><span><i class="dot d-con"></i>자문 11</span></div>
+              <table class="table">
+                <thead><tr><th>상담일자</th><th>사례번호</th><th>이름</th><th>유형</th><th>회기</th><th>상담 내용</th></tr></thead>
+                <tbody>
+                  <tr><td>11-26</td><td>2026-014</td><td>김○희</td><td>개인</td><td>3</td><td>대인관계</td></tr>
+                  <tr><td>11-26</td><td>2026-031</td><td>정○우</td><td>학부모</td><td>1</td><td>학교생활</td></tr>
+                  <tr><td>11-25</td><td>2026-009</td><td>이○준</td><td>개인</td><td>6</td><td>정서</td></tr>
+                  <tr><td>11-24</td><td>2026_G01</td><td>또래상담</td><td>집단</td><td>4/8</td><td>또래관계</td></tr>
+                  <tr><td>11-21</td><td>2026-022</td><td>최○민</td><td>개인</td><td>2</td><td>진로</td></tr>
+                </tbody>
+              </table>
+              <div style="display: flex; gap: 6px; margin-top: 10px">
+                <span class="tag done" style="margin: 0">엑셀 받기</span><span class="tag done" style="margin: 0">PDF 받기</span><span class="tag plan" style="margin: 0">나이스 업로드</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>상담 기록은<br />내 컴퓨터에만 둡니다</h2>
+          <p>민감한 상담 내용을 외부 서버로 보내지 않습니다. 필요한 것만 골라서 연결하세요.</p>
+        </div>
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="ico">🔒</div>
+            <h4>내 컴퓨터에 저장</h4>
+            <p>모든 기록은 설치한 컴퓨터에만 저장됩니다. 일정 시간 입력이 없으면 화면을 잠그고, 비밀번호로 다시 엽니다.</p>
+          </div>
+          <div class="mini">
+            <div class="ico">💾</div>
+            <h4>암호 걸린 백업</h4>
+            <p>백업 파일은 암호로 보호됩니다. 컴퓨터를 바꾸거나 근무지를 옮겨도 백업 파일로 그대로 복원합니다.</p>
+          </div>
+          <div class="mini">
+            <div class="ico">📅</div>
+            <h4>구글 캘린더 (선택)</h4>
+            <p>원하면 일정만 휴대폰 캘린더로 보냅니다. 이름은 김0희처럼 가리고, 상담 기록과 메모는 보내지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="start">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>3분이면<br />시작할 수 있습니다</h2>
+          <p>설치 파일 하나로 끝납니다. 새 버전이 나오면 프로그램 안에서 알려 줍니다.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h4>설치 파일 받기</h4>
+            <p>아래 <b>무료 다운로드</b>를 누르면 설치 파일이 다운로드 폴더에 저장됩니다.</p>
+          </div>
+          <div class="step">
+            <h4>설치하기</h4>
+            <p>받은 파일을 실행합니다. 「Windows의 PC 보호」 창이 뜨면 <b>추가 정보 → 실행</b>을 누르세요.</p>
+          </div>
+          <div class="step">
+            <h4>계정 만들고 학교 설정</h4>
+            <p>처음 실행할 때 내 계정을 만들고, 설정 → 학교 환경에서 시정표와 학사일정을 넣습니다.</p>
+          </div>
+        </div>
+        <div class="download-box">
+          <div>
+            <h3>위드패스 <span class="js-version-only">최신 버전</span></h3>
+            <p>Windows 10·11 · 무료 · <a href="guide.html" style="color: #9ee6dc">설치부터 차근차근 보는 사용 설명서</a></p>
+          </div>
+          <a class="btn btn-primary js-download" href="#">무료 다운로드</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>업데이트 소식</h2>
+          <p>현장에서 들은 이야기를 반영해 계속 고쳐 가고 있습니다.</p>
+        </div>
+        <div class="news">
+          <article>
+            <span class="ver">3.0.2</span><time>2026.11.26</time>
+            <ul>
+              <li>컴시간 알리미가 바뀌어도 시간표 조회가 이어짐</li>
+              <li>확인증 시간표에 출장·회의 등 상담 외 일정도 표시</li>
+              <li>캘린더에서 할 일을 눌러 완료</li>
+              <li>구글 캘린더에 출장·회의 등 일정 제목을 그대로 표시</li>
+            </ul>
+          </article>
+          <article>
+            <span class="ver">3.0.1</span><time>2026.11.03</time>
+            <ul>
+              <li>가로 화면에서 내담자 정보와 회기 기록을 나란히 봄</li>
+              <li>구글 캘린더로 올리는 이름은 가운데를 가림</li>
+              <li>회기 기록지에 당일취소 버튼</li>
+            </ul>
+          </article>
+          <article>
+            <span class="ver">3.0.0</span><time>2026.10.16</time>
+            <ul>
+              <li>홈 화면 개편, 지금 교시와 방학 D-day 표시</li>
+              <li>일정 등록 흐름 개선, 반복 등록 강화</li>
+              <li>확인증 출력 화면 개선</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="share">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>주변 선생님께<br />소개해 주세요</h2>
+          <p>아래 문구를 복사해서 메신저나 단체 대화방에 그대로 붙여 넣으면 됩니다.</p>
+        </div>
+        <div class="share">
+          <div class="share-card">
+            <h4>소개 문구</h4>
+            <div class="share-text" id="shareText">상담 일정·회기 기록·확인증·집단 출석부·상담 대장을 한 번에 관리하는 무료 프로그램 「위드패스」를 소개합니다.
+컴시간 시간표를 보면서 상담 시간을 잡고, 학기 말 대장과 나이스 자료도 바로 만들어 줍니다.
+상담 기록은 내 컴퓨터에만 저장됩니다.
+👉 https://hee122086-del.github.io/weed-pass-releases/</div>
+            <button class="btn btn-primary btn-sm" type="button" data-copy="shareText">문구 복사</button>
+            <div class="copied" id="copiedText"></div>
+          </div>
+          <div class="share-card">
+            <h4>페이지 주소</h4>
+            <p style="margin: 0 0 12px; font-size: 15px">이 주소 하나만 알려 주면 소개, 다운로드, 사용 설명서를 모두 볼 수 있습니다.</p>
+            <div class="link-row">
+              <input id="shareLink" readonly value="https://hee122086-del.github.io/weed-pass-releases/" />
+              <button class="btn btn-line btn-sm" type="button" data-copy="shareLink">주소 복사</button>
+            </div>
+            <div class="copied" id="copiedLink"></div>
+            <p style="margin: 14px 0 0; font-size: 14px; color: var(--muted)">설치나 사용 중 궁금한 점은 <a href="mailto:hee122086@gmail.com">hee122086@gmail.com</a>으로 보내 주세요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>자주 묻는 질문</h2>
+          <p>더 궁금한 점은 <a href="guide.html">사용 설명서</a>나 메일로 문의해 주세요.</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>정말 무료인가요?</summary>
+            <p>네. 학교 상담 업무에 쓰도록 만든 프로그램이며 비용을 받지 않습니다.</p>
+          </details>
+          <details>
+            <summary>상담 기록이 인터넷으로 나가지 않나요?</summary>
+            <p>상담 기록은 설치한 컴퓨터에만 저장됩니다. 인터넷을 쓰는 기능은 컴시간 시간표 조회, 공휴일 불러오기, 업데이트 확인, 그리고 직접 켠 경우의 구글 캘린더 일정 내보내기뿐입니다. 구글 캘린더에는 가린 이름과 날짜·시간만 올라갑니다.</p>
+          </details>
+          <details>
+            <summary>설치할 때 「Windows의 PC 보호」 창이 떠요.</summary>
+            <p>개인이 만든 프로그램이라 처음에 나오는 안내입니다. <b>추가 정보</b>를 누른 뒤 <b>실행</b>을 누르면 설치됩니다.</p>
+          </details>
+          <details>
+            <summary>컴퓨터를 바꾸거나 학교를 옮기면요?</summary>
+            <p>설정 → 데이터 백업에서 백업 파일을 저장해 두고, 새 컴퓨터에 위드패스를 설치한 뒤 같은 메뉴에서 복원하면 됩니다. 백업 파일을 만들 때 정한 암호가 필요합니다.</p>
+          </details>
+          <details>
+            <summary>컴시간 학교코드는 어디서 알 수 있나요?</summary>
+            <p>컴시간 알리미의 교사용 학교코드이며 나이스 학교코드와 다릅니다. 학교 시간표 담당(일과계) 선생님께 문의해 주세요. 코드가 없어도 교시를 직접 골라 예약과 확인증 출력은 할 수 있습니다.</p>
+          </details>
+          <details>
+            <summary>새 버전은 어떻게 받나요?</summary>
+            <p>위드패스를 켜면 새 버전이 있는지 확인해서 알려 줍니다. 안내에 따라 받으면 기록은 그대로 두고 프로그램만 바뀝니다.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div>
+          <b style="color: var(--ink)">위드패스 (WeeD-Pass)</b><br />
+          학교 상담 선생님을 위한 상담 업무 도구 · <a href="mailto:hee122086@gmail.com">hee122086@gmail.com</a>
+        </div>
+        <nav>
+          <a href="guide.html">사용 설명서</a>
+          <a href="privacy.html">개인정보처리방침</a>
+          <a href="terms.html">서비스 약관</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="download.js"></script>
   </body>
 </html>
