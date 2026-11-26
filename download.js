@@ -30,6 +30,27 @@
     })
     .catch(function () {})
 
+  function showDeveloper(info) {
+    var name = (info.name || '').trim()
+    var affiliation = (info.affiliation || '').trim()
+    var email = (info.email || '').trim()
+    var who = [name, affiliation && '(' + affiliation + ')'].filter(Boolean).join(' ')
+    document.querySelectorAll('.js-developer').forEach(function (el) {
+      el.textContent = who ? '개발 ' + who + ' · 문의 ' : '개발·문의 '
+      var mail = document.createElement('a')
+      mail.href = 'mailto:' + email
+      mail.textContent = email
+      el.appendChild(mail)
+    })
+  }
+
+  fetch('developer.json', { cache: 'no-cache' })
+    .then(function (response) {
+      return response.ok ? response.json() : Promise.reject(response.status)
+    })
+    .then(showDeveloper)
+    .catch(function () {})
+
   document.querySelectorAll('[data-copy]').forEach(function (button) {
     button.addEventListener('click', function () {
       var source = document.getElementById(button.getAttribute('data-copy'))
